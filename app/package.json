@@ -1,0 +1,46 @@
+{
+  "name": "swagger-rest-api",
+  "version": "1.0.0",
+  "description": "Swagger-driven typescript REST API server",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --build --clean && tsc",
+    "prestart": "npm run build",
+    "start": "node -r source-map-support/register .",
+    "test": "mocha dist/tests/echo"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "js-yaml": "^3.3.0",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "path": "^0.12.7",
+    "swagger-tools": "^0.10.4"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.3",
+    "@types/connect": "^3.4.32",
+    "@types/js-yaml": "^3.12.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.8",
+    "@types/passport": "^1.0.1",
+    "@types/passport-http": "^0.3.8",
+    "@types/supertest": "^2.0.8",
+    "@types/swagger-tools": "^0.10.6",
+    "chai": "^4.2.0",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-eslint-plugin": "^2.1.0",
+    "eslint-plugin-mocha": "^6.1.1",
+    "source-map-support": "^0.5.13",
+    "supertest": "^4.0.2",
+    "typescript": "^3.6.3"
+  },
+  "author": "maciej.jarkowski@pl.ibm.com"
+}

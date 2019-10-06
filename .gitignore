@@ -1,0 +1,6 @@
+app/node_modules
+app/*.tsbuildinfo
+app/dist
+tsang
+.DS_Store
+swagger/*.jar
