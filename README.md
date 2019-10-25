@@ -1,7 +1,7 @@
 # Swagger TypeScript generated REST API server
 
 ## Overview
-This project leverages [swagger-tools](https://github.com/apigee-127/swagger-tools) middleware and [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.4.8) - great tool to generate client/server source code based on Swagger API definition. However, [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.4.8) does not generate TypeScript REST API server. 
+This project leverages [swagger-tools](https://github.com/apigee-127/swagger-tools) middleware and [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.4.9) - great tool to generate client/server source code based on Swagger API definition. However, [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.4.8) does not generate TypeScript REST API server. 
 
 Thus, here comes this project. It acts as a helper and template for generating TypeScript REST API server based on Swagger definition.
 It also leverages [passport](https://www.npmjs.com/package/passport) to enforce security defined in Swagger file. It is called from [swagger-tools](https://github.com/apigee-127/swagger-tools) - so we can make any per-API specific security checks based on the Swagger API definition (see `app/src/security.ts`, function `basicAuth` and its `securityDefinition` argument)
@@ -24,8 +24,8 @@ npm test
 ## Adapting the server
 To adapt the server to your project do the following:
 - fork and clone this project
-- download current `swagger-codegen-cli` v 2.x: `./downloadSwagger.sh`
-- use `./generateSwagger.sh <your swagger file>` to generate your TypeScript model definitions.
+- download current `swagger-codegen-cli` v 2 and 3: `./downloadSwagger.sh`
+- use `./generateSwagger.sh <your swagger file> <optional swagger version:2/3>` to generate your TypeScript model definitions.
 It generates Angular Typescript model (in temporary `tsang` folder), but takes only the model from there - copies it to `./app/src/model` (note, it overrides the old model).
 Controllers (API handlers) have to be created by you.
 - go to `app/src/controllers`, take Test.ts as your controller template.

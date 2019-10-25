@@ -1,0 +1,67 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Typescript Swagger REST API
+  license:
+    name: MIT
+  contact:
+    email: maciej.jarkowski@pl.ibm.com
+paths:
+  /echo:
+    post:
+      x-swagger-router-controller: Test
+      summary: Echo request.msg to response.
+      operationId: echo
+      tags:
+        - Test
+      security:
+        - BasicAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EchoRequest"
+        required: true
+      responses:
+        "200":
+          description: Echo response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EchoResponse"
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+servers:
+  - url: http://localhost:8080/api/v1
+  - url: https://localhost:8080/api/v1
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+  schemas:
+    EchoRequest:
+      type: object
+      properties:
+        msgIn:
+          type: string
+      required:
+        - msgIn
+    EchoResponse:
+      type: object
+      properties:
+        msgOut:
+          type: string
+      required:
+        - msgOut
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
